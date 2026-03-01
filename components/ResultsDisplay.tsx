@@ -9,6 +9,8 @@ interface ResultsDisplayProps {
   constraints: Constraints;
   onSave: () => void;
   onBack: () => void;
+  isExample?: boolean;
+  onStartOwn?: () => void;
 }
 
 // ─── Geometry helpers ────────────────────────────────────────────────────────
@@ -541,7 +543,7 @@ const SISC_URL = 'http://178.156.252.103:8095/';
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export default function ResultsDisplay({
-  facilityType, propertyBounds, constraints, onSave, onBack,
+  facilityType, propertyBounds, constraints, onSave, onBack, isExample = false, onStartOwn,
 }: ResultsDisplayProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
@@ -798,6 +800,21 @@ export default function ResultsDisplay({
   return (
     <div className="min-h-screen bg-black">
       <div className="h-screen flex flex-col">
+
+        {/* Example mode banner */}
+        {isExample && (
+          <div className="bg-blue-950 border-b border-blue-700 px-4 py-2 flex items-center justify-between">
+            <p className="text-blue-300 text-sm font-medium">
+              ⚡ Example Layout — 5-Acre Paintball Facility, Dallas TX ($300K budget)
+            </p>
+            <button
+              onClick={onStartOwn}
+              className="ml-4 px-4 py-1.5 bg-neon-green text-black text-sm font-bold rounded-lg hover:opacity-90 transition-all whitespace-nowrap"
+            >
+              Design My Property →
+            </button>
+          </div>
+        )}
 
         {/* Header */}
         <div className="bg-gray-900 border-b border-gray-800 p-4">

@@ -1,8 +1,10 @@
 interface HeroProps {
   onStart: () => void;
+  onTryExample: () => void;
+  isLoadingExample: boolean;
 }
 
-export default function Hero({ onStart }: HeroProps) {
+export default function Hero({ onStart, onTryExample, isLoadingExample }: HeroProps) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-b from-black to-gray-900">
       <div className="max-w-4xl text-center">
@@ -31,13 +33,28 @@ export default function Hero({ onStart }: HeroProps) {
             🎉 Family Entertainment Centers
           </span>
         </div>
-        
+
+        {/* Primary CTA */}
         <button
           onClick={onStart}
-          className="px-8 py-4 bg-neon-green text-black font-bold text-lg rounded-lg hover:bg-neon-greenDark transition-all transform hover:scale-105 shadow-lg shadow-neon-green/50"
+          className="px-8 py-4 bg-neon-green text-black font-bold text-lg rounded-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg shadow-neon-green/50"
         >
           Start Designing Now →
         </button>
+
+        {/* Example shortcut */}
+        <div className="mt-4">
+          <button
+            onClick={onTryExample}
+            disabled={isLoadingExample}
+            className="px-6 py-3 bg-gray-800 border border-gray-600 text-gray-300 rounded-lg font-medium hover:bg-gray-700 hover:border-gray-400 transition-all text-sm disabled:opacity-50 disabled:cursor-wait"
+          >
+            {isLoadingExample
+              ? '⏳ Loading example…'
+              : '▶ See Example: 5-Acre Paintball Facility, Dallas TX'}
+          </button>
+          <p className="mt-2 text-gray-600 text-xs">Instant preview — no drawing required</p>
+        </div>
         
         <p className="mt-8 text-gray-400 text-sm">
           No credit card required • Get your optimized layout instantly
