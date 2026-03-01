@@ -48,7 +48,7 @@ export default function Hero({ onStart, onTryExample, isLoadingExample }: HeroPr
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
             <button
               onClick={onStart}
               className="btn-sisc btn-sisc-primary text-base px-8 py-3.5"
