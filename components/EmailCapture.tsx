@@ -58,8 +58,8 @@ export default function EmailCapture({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
-      <div className="bg-gray-900 border-2 border-neon-green rounded-xl max-w-md w-full p-8 relative">
+    <div className="fixed inset-0 bg-[#0a0a0a] bg-opacity-80 flex items-center justify-center p-4 z-50">
+      <div className="bg-[#111111] border-2 border-neon-green rounded-xl max-w-md w-full p-8 relative">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
@@ -97,7 +97,7 @@ export default function EmailCapture({
 
             {/* Layout context pill */}
             {(facilityType || budget) && (
-              <div className="bg-gray-800 rounded-lg px-4 py-2 mb-4 text-xs text-gray-400 flex flex-wrap gap-3">
+              <div className="bg-[#1a1a1a] rounded-lg px-4 py-2 mb-4 text-xs text-gray-400 flex flex-wrap gap-3">
                 {facilityType && <span>🏟 {facilityType.charAt(0).toUpperCase() + facilityType.slice(1)}</span>}
                 {fieldCount && <span>⚽ {fieldCount} fields</span>}
                 {budget && <span>💰 ${budget.toLocaleString()} budget</span>}
@@ -113,7 +113,7 @@ export default function EmailCapture({
                   onChange={(e) => { setEmail(e.target.value); setError(''); }}
                   placeholder="your@email.com"
                   disabled={status === 'loading'}
-                  className="w-full bg-gray-800 border-2 border-gray-700 rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors disabled:opacity-50"
+                  className="w-full bg-[#1a1a1a] border-2 border-white/[0.12] rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors disabled:opacity-50"
                 />
                 {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
               </div>

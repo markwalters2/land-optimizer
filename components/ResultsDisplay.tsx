@@ -798,8 +798,8 @@ export default function ResultsDisplay({
   const facilityLabel = FACILITY_NAMES[facilityType || ''] ?? 'Facility';
 
   return (
-    <div className="min-h-screen bg-black">
-      <div className="h-screen flex flex-col">
+    <div className="min-h-screen bg-[#0a0a0a]">
+      <div className="h-[calc(100vh-64px)] flex flex-col">
 
         {/* Example mode banner */}
         {isExample && (
@@ -817,7 +817,7 @@ export default function ResultsDisplay({
         )}
 
         {/* Header */}
-        <div className="bg-gray-900 border-b border-gray-800 p-4">
+        <div className="bg-[#111111] border-b border-white/[0.08] p-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <button onClick={onBack} className="text-gray-400 hover:text-neon-green transition-colors">← Back</button>
             <div className="text-center flex-1">
@@ -828,19 +828,19 @@ export default function ResultsDisplay({
               {result && (
                 <>
                   <button onClick={handleViewSitePlan}
-                    className="px-5 py-2 bg-gray-800 border border-neon-green text-neon-green rounded-lg font-semibold hover:bg-gray-700 transition-all text-sm">
+                    className="px-5 py-2 bg-[#1a1a1a] border border-neon-green text-neon-green rounded-lg font-semibold hover:bg-[#222222] transition-all text-sm">
                     📄 Site Plan
                   </button>
                   <button
                     onClick={handleExportPDF}
                     disabled={isPDFGenerating}
-                    className="px-5 py-2 bg-gray-800 border border-blue-400 text-blue-400 rounded-lg font-semibold hover:bg-gray-700 transition-all text-sm disabled:opacity-50 disabled:cursor-wait">
+                    className="px-5 py-2 bg-[#1a1a1a] border border-blue-400 text-blue-400 rounded-lg font-semibold hover:bg-[#222222] transition-all text-sm disabled:opacity-50 disabled:cursor-wait">
                     {isPDFGenerating ? '⏳ Building PDF…' : '📑 Export PDF'}
                   </button>
                 </>
               )}
               <button onClick={onSave}
-                className="px-5 py-2 bg-gray-800 border border-gray-600 text-gray-300 rounded-lg font-semibold hover:bg-gray-700 transition-all text-sm">
+                className="px-5 py-2 bg-[#1a1a1a] border border-gray-600 text-gray-300 rounded-lg font-semibold hover:bg-[#222222] transition-all text-sm">
                 📥 Save
               </button>
               <button onClick={() => window.open(SISC_URL, '_blank')}
@@ -856,7 +856,7 @@ export default function ResultsDisplay({
           <div className="flex-1 relative">
             <div ref={mapRef} className="w-full h-full" />
             {isGenerating && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-80">
+              <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0a] bg-opacity-80">
                 <div className="text-center">
                   <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-neon-green mx-auto mb-4" />
                   <div className="text-neon-green text-xl font-semibold">{statusText}</div>
@@ -865,7 +865,7 @@ export default function ResultsDisplay({
               </div>
             )}
             {!isGenerating && result && (
-              <div className="absolute bottom-4 left-4 bg-gray-900 bg-opacity-95 rounded-lg p-3 border border-gray-700 text-sm space-y-1">
+              <div className="absolute bottom-4 left-4 bg-[#111111] bg-opacity-95 rounded-lg p-3 border border-white/[0.12] text-sm space-y-1">
                 <div className="font-bold text-white mb-2">Legend</div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-3 rounded-sm" style={{ background: 'rgba(57,255,20,0.5)', border: '1px solid #39FF14' }} />
@@ -903,7 +903,7 @@ export default function ResultsDisplay({
           </div>
 
           {/* Sidebar */}
-          <div className="w-full md:w-96 bg-gray-900 border-l border-gray-800 overflow-y-auto flex-shrink-0">
+          <div className="w-full md:w-96 bg-[#111111] border-l border-white/[0.08] overflow-y-auto flex-shrink-0">
             <div className="p-6 space-y-6">
               {error && (
                 <div className="bg-red-900/40 border border-red-500/60 rounded-lg p-5 text-red-300">
@@ -945,7 +945,7 @@ export default function ResultsDisplay({
                         { v: `${result.metrics.utilizationPercent}%`, l: 'Space Utilized' },
                         { v: result.layout.parking.spaces, l: 'Parking Spaces' },
                       ].map(({ v, l }) => (
-                        <div key={l} className="bg-gray-800 rounded-lg p-3">
+                        <div key={l} className="bg-[#1a1a1a] rounded-lg p-3">
                           <div className="text-3xl font-bold text-white">{v}</div>
                           <div className="text-xs text-gray-400 mt-1">{l}</div>
                         </div>
@@ -968,7 +968,7 @@ export default function ResultsDisplay({
                           <span className="text-white">${v.toLocaleString()}</span>
                         </div>
                       ))}
-                      <div className="flex justify-between border-t border-gray-700 pt-2 font-bold text-base">
+                      <div className="flex justify-between border-t border-white/[0.12] pt-2 font-bold text-base">
                         <span className="text-white">Total Estimate</span>
                         <span className={result.costEstimate.total > constraints.budget ? 'text-red-400' : 'text-neon-green'}>
                           ${result.costEstimate.total.toLocaleString()}
@@ -1018,10 +1018,10 @@ export default function ResultsDisplay({
                     </div>
                   )}
 
-                  <div className="bg-gray-800 border border-neon-green/20 rounded-lg p-4 space-y-2">
+                  <div className="bg-[#1a1a1a] border border-neon-green/20 rounded-lg p-4 space-y-2">
                     <p className="text-sm text-gray-400 mb-3">Export your layout for a feasibility study, investor deck, or site plan review.</p>
                     <button onClick={handleViewSitePlan}
-                      className="w-full px-4 py-3 bg-gray-700 border border-neon-green text-neon-green font-bold rounded-lg hover:bg-gray-600 transition-all">
+                      className="w-full px-4 py-3 bg-[#222222] border border-neon-green text-neon-green font-bold rounded-lg hover:bg-gray-600 transition-all">
                       📄 View Site Plan (PNG)
                     </button>
                     <button
@@ -1039,8 +1039,8 @@ export default function ResultsDisplay({
               ) : null}
 
               {!error && (
-                <div className="pt-2 border-t border-gray-800">
-                  <div className="bg-gray-800 border border-neon-green/30 rounded-lg p-4">
+                <div className="pt-2 border-t border-white/[0.08]">
+                  <div className="bg-[#1a1a1a] border border-neon-green/30 rounded-lg p-4">
                     <p className="text-sm text-gray-300 mb-3">
                       <strong className="text-neon-green">Next Step:</strong> Get specialized insurance for your {facilityLabel.toLowerCase()}. Most clients are underinsured by 40%+.
                     </p>
@@ -1059,12 +1059,12 @@ export default function ResultsDisplay({
       {/* Site Plan Modal */}
       {sitePlanUrl && (
         <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-90 flex flex-col"
+          className="fixed inset-0 z-50 bg-[#0a0a0a] bg-opacity-90 flex flex-col"
           onClick={() => setSitePlanUrl(null)}
         >
           {/* Modal header */}
           <div
-            className="flex items-center justify-between px-6 py-3 bg-gray-900 border-b border-gray-700 flex-shrink-0"
+            className="flex items-center justify-between px-6 py-3 bg-[#111111] border-b border-white/[0.12] flex-shrink-0"
             onClick={e => e.stopPropagation()}
           >
             <h3 className="text-white font-bold text-lg">📄 Site Plan</h3>
@@ -1077,7 +1077,7 @@ export default function ResultsDisplay({
               </button>
               <button
                 onClick={() => setSitePlanUrl(null)}
-                className="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition-all text-sm"
+                className="px-4 py-2 bg-[#222222] text-gray-300 rounded-lg hover:bg-gray-600 transition-all text-sm"
               >
                 ✕ Close
               </button>
@@ -1092,7 +1092,7 @@ export default function ResultsDisplay({
             <img
               src={sitePlanUrl}
               alt="Site Plan"
-              className="max-w-none rounded-lg shadow-2xl border border-gray-700"
+              className="max-w-none rounded-lg shadow-2xl border border-white/[0.12]"
               style={{ width: '100%', maxWidth: '1600px' }}
             />
           </div>

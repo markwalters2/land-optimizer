@@ -13,7 +13,7 @@ export default function ConstraintForm({ facilityType, onSubmit, onBack }: Const
   const { register, handleSubmit, formState: { errors } } = useForm<Constraints>();
 
   return (
-    <div className="min-h-screen bg-black px-4 py-12">
+    <div className="min-h-screen bg-[#0a0a0a] px-4 py-12">
       <div className="max-w-3xl mx-auto">
         <button
           onClick={onBack}
@@ -46,7 +46,7 @@ export default function ConstraintForm({ facilityType, onSubmit, onBack }: Const
                   required: 'Budget is required',
                   min: { value: 10000, message: 'Minimum budget is $10,000' }
                 })}
-                className="w-full bg-gray-900 border-2 border-gray-800 rounded-lg px-4 pl-8 py-3 focus:border-neon-green focus:outline-none transition-colors"
+                className="w-full bg-[#111111] border-2 border-white/[0.08] rounded-lg px-4 pl-8 py-3 focus:border-neon-green focus:outline-none transition-colors"
                 placeholder="100000"
               />
             </div>
@@ -66,7 +66,7 @@ export default function ConstraintForm({ facilityType, onSubmit, onBack }: Const
             <textarea
               {...register('existingStructures')}
               rows={4}
-              className="w-full bg-gray-900 border-2 border-gray-800 rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors resize-none"
+              className="w-full bg-[#111111] border-2 border-white/[0.08] rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors resize-none"
               placeholder="e.g., One warehouse building (5000 sq ft), power lines on east side, small shed..."
             />
           </div>
@@ -85,7 +85,7 @@ export default function ConstraintForm({ facilityType, onSubmit, onBack }: Const
                 required: 'Number of parking spaces is required',
                 min: { value: 5, message: 'Minimum 5 parking spaces' }
               })}
-              className="w-full bg-gray-900 border-2 border-gray-800 rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors"
+              className="w-full bg-[#111111] border-2 border-white/[0.08] rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors"
               placeholder="50"
             />
             {errors.parkingSpaces && (
@@ -104,7 +104,7 @@ export default function ConstraintForm({ facilityType, onSubmit, onBack }: Const
             <textarea
               {...register('additionalNotes')}
               rows={4}
-              className="w-full bg-gray-900 border-2 border-gray-800 rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors resize-none"
+              className="w-full bg-[#111111] border-2 border-white/[0.08] rounded-lg px-4 py-3 focus:border-neon-green focus:outline-none transition-colors resize-none"
               placeholder="e.g., Need covered waiting area, prefer natural barriers, must have emergency vehicle access..."
             />
           </div>

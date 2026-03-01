@@ -185,7 +185,7 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
   // Mobile block — Leaflet draw doesn't work on touch screens
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center px-6 text-center">
+      <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center px-6 text-center">
         <div className="text-5xl mb-6">🖥️</div>
         <h2 className="text-2xl font-bold mb-3">Best on Desktop</h2>
         <p className="text-gray-400 mb-6 max-w-sm leading-relaxed">
@@ -201,7 +201,7 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
               value={mobileEmail}
               onChange={e => setMobileEmail(e.target.value)}
               placeholder="your@email.com"
-              className="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-neon-green"
+              className="w-full bg-[#1a1a1a] border border-white/[0.12] text-white placeholder-gray-500 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-neon-green"
             />
             <button
               type="submit"
@@ -212,7 +212,7 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
             </button>
           </form>
         ) : (
-          <div className="bg-gray-900 border border-neon-green/30 rounded-lg p-5 max-w-sm">
+          <div className="bg-[#111111] border border-neon-green/30 rounded-lg p-5 max-w-sm">
             <p className="text-neon-green font-semibold mb-1">✓ Got it!</p>
             <p className="text-gray-400 text-sm">We'll follow up with a link. In the meantime, bookmark this page and open it on your computer.</p>
           </div>
@@ -228,9 +228,9 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
   }
 
   return (
-    <div className="min-h-screen bg-black">
-      <div className="h-screen flex flex-col">
-        <div className="bg-gray-900 border-b border-gray-800 p-4">
+    <div className="min-h-screen bg-[#0a0a0a]">
+      <div className="h-[calc(100vh-64px)] flex flex-col">
+        <div className="bg-[#111111] border-b border-white/[0.08] p-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <button
               onClick={onBack}
@@ -252,7 +252,7 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
               className={`px-6 py-2 rounded-lg font-semibold transition-all ${
                 drawnLayer
                   ? 'bg-neon-green text-black hover:bg-neon-greenDark'
-                  : 'bg-gray-700 text-gray-500 cursor-not-allowed'
+                  : 'bg-[#222222] text-gray-500 cursor-not-allowed'
               }`}
             >
               Continue →
@@ -261,14 +261,14 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
         </div>
         
         {/* Address search bar */}
-        <div className="bg-gray-950 border-b border-gray-800 px-4 py-2">
+        <div className="bg-[#080808] border-b border-white/[0.08] px-4 py-2">
           <form onSubmit={handleSearch} className="flex gap-2 max-w-lg">
             <input
               type="text"
               value={searchQuery}
               onChange={e => { setSearchQuery(e.target.value); setSearchError(''); }}
               placeholder="Search your property address or city..."
-              className="flex-1 bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-neon-green transition-colors"
+              className="flex-1 bg-[#1a1a1a] border border-white/[0.12] text-white placeholder-gray-500 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-neon-green transition-colors"
             />
             <button
               type="submit"
@@ -287,7 +287,7 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
           <div ref={mapRef} className="w-full h-full" />
           
           {!isReady && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#0a0a0a] bg-opacity-50">
               <div className="text-neon-green text-xl">Loading map...</div>
             </div>
           )}
@@ -298,7 +298,7 @@ export default function MapInterface({ facilityType, onComplete, onBack }: MapIn
             </div>
           )}
           {!drawError && (
-          <div className="absolute top-4 right-4 bg-gray-900 bg-opacity-95 rounded-lg p-4 max-w-xs border border-neon-green/30">
+          <div className="absolute top-4 right-4 bg-[#111111] bg-opacity-95 rounded-lg p-4 max-w-xs border border-neon-green/30">
             <h3 className="font-bold mb-2 text-neon-green">Instructions:</h3>
             <ol className="text-sm text-gray-300 space-y-1 list-decimal list-inside">
               <li>Search your property address above</li>

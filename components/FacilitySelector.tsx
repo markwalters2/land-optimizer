@@ -40,7 +40,7 @@ const facilities = [
 
 export default function FacilitySelector({ onSelect, onBack }: FacilitySelectorProps) {
   return (
-    <div className="min-h-screen bg-black px-4 py-12">
+    <div className="min-h-screen bg-[#0a0a0a] px-4 py-12">
       <div className="max-w-6xl mx-auto">
         <button
           onClick={onBack}
@@ -61,7 +61,7 @@ export default function FacilitySelector({ onSelect, onBack }: FacilitySelectorP
             <button
               key={facility.type}
               onClick={() => onSelect(facility.type)}
-              className="bg-gray-900 border-2 border-gray-800 hover:border-neon-green rounded-xl p-6 text-left transition-all transform hover:scale-105 group"
+              className="bg-[#111111] border-2 border-white/[0.08] hover:border-neon-green rounded-xl p-6 text-left transition-all transform hover:scale-105 group"
             >
               <div className="text-5xl mb-4">{facility.icon}</div>
               <h3 className="text-xl font-bold mb-2 group-hover:text-neon-green transition-colors">
