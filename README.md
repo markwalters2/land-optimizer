@@ -192,11 +192,33 @@ npx tsc --noEmit  # type check only
 
 ## Deploy
 
-Pushes to `main` auto-deploy via Vercel GitHub integration.
+**Auto-deploy on push to `main`** via GitHub Actions (`.github/workflows/deploy.yml`).
 
-Manual deploy (fallback):
+### One-time GitHub Secrets Setup
+
+Three secrets needed in [GitHub → Settings → Secrets → Actions](https://github.com/markwalters2/land-optimizer/settings/secrets/actions):
+
+| Secret | Where to get it |
+|---|---|
+| `VERCEL_TOKEN` | [vercel.com/account/tokens](https://vercel.com/account/tokens) → Create token |
+| `VERCEL_ORG_ID` | `team_x4ErRgolYEJbe1uKNbc6UkrY` |
+| `VERCEL_PROJECT_ID` | `prj_13Z1QiQcsStFwMpgwctyplfmTV3m` |
+
+Once secrets are set, every `git push origin main` auto-deploys to production.
+
+### Manual deploy (fallback)
+
 ```bash
+cd land-optimizer
 npx vercel --prod
+```
+
+### Commit & push workflow
+
+```bash
+git add -A
+git commit -m "feat: your change description"
+git push origin main   # triggers auto-deploy
 ```
 
 ---
