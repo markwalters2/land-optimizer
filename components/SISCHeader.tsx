@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: 'About Us',  href: `${SISC_URL}/about/` },
   { label: 'Businesses', href: `${SISC_URL}/businesses/` },
   { label: 'Coverages', href: `${SISC_URL}/coverages/` },
-  { label: 'Resources', href: `${SISC_URL}/faq/` },
+  { label: 'Resources', href: '/blog' },
 ];
 
 export default function SISCHeader() {

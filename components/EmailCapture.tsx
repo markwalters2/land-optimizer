@@ -60,12 +60,7 @@ export default function EmailCapture({
   return (
     <div className="fixed inset-0 bg-[#0a0a0a] bg-opacity-80 flex items-center justify-center p-4 z-50">
       <div className="bg-[#111111] border-2 border-neon-green rounded-xl max-w-md w-full p-8 relative">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
-        >
-          ×
-        </button>
+        {/* No close/skip -- email required to unlock layout */}
 
         {status === 'success' ? (
           <div className="text-center py-4">
@@ -87,11 +82,11 @@ export default function EmailCapture({
         ) : (
           <>
             <div className="text-center mb-6">
-              <div className="text-5xl mb-4">📋</div>
-              <h3 className="text-2xl font-bold mb-2">Save Your Site Plan</h3>
+              <div className="text-5xl mb-4">🗺️</div>
+              <h3 className="text-2xl font-bold mb-2">Your Layout Is Ready</h3>
               <p className="text-gray-400 text-sm">
-                Get a summary of your optimized layout — and learn about specialized insurance for{' '}
-                {facilityType ? facilityType.charAt(0).toUpperCase() + facilityType.slice(1) + ' facilities' : 'your facility'}.
+                Drop your email and we'll send your site plan straight to your inbox — plus a quick note on specialized insurance for{' '}
+                {facilityType ? facilityType.charAt(0).toUpperCase() + facilityType.slice(1) + ' facilities' : 'your facility type'}.
               </p>
             </div>
 
@@ -123,7 +118,7 @@ export default function EmailCapture({
                 disabled={status === 'loading'}
                 className="w-full px-6 py-3 bg-neon-green text-black font-bold rounded-lg hover:opacity-90 transition-all transform hover:scale-[1.02] shadow-lg shadow-neon-green/50 disabled:opacity-60 disabled:scale-100 disabled:cursor-wait"
               >
-                {status === 'loading' ? 'Saving…' : 'Send Me My Plan →'}
+                {status === 'loading' ? 'Loading…' : 'Show My Layout →'}
               </button>
 
               <p className="text-xs text-gray-500 text-center">

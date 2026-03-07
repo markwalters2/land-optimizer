@@ -63,17 +63,18 @@ export default function Home() {
 
   const handleConstraintsSubmit = (data: Constraints) => {
     setConstraints(data);
-    setStep('results');
-  };
-
-  const handleSavePlan = () => {
+    // Show email gate BEFORE results — hard gate, not optional
     setShowEmailCapture(true);
   };
 
+  const handleSavePlan = () => {
+    // Already captured — no-op (button hidden post-capture)
+  };
+
   const handleEmailSubmit = (_email: string) => {
-    // API call + success state are handled inside EmailCapture component.
-    // This callback fires after successful submission — nothing extra needed here.
-    // The modal closes via its own onClose button after showing the success state.
+    // Email captured — now unlock results
+    setShowEmailCapture(false);
+    setStep('results');
   };
 
   return (
